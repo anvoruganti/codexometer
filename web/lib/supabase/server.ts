@@ -1,12 +1,10 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
-type ServiceRoleClient = SupabaseClient<unknown, string, unknown>;
-
 /**
  * Creates a Supabase client that uses the service role key.
  * Intended for server-only contexts (Route Handlers, Server Actions, Edge Functions).
  */
-export function createServiceRoleClient(): ServiceRoleClient {
+export function createServiceRoleClient(): SupabaseClient {
   const url = process.env.SUPABASE_URL;
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
